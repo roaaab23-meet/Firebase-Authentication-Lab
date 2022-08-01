@@ -68,6 +68,7 @@ def add_tweet():
     if request.method=='POST':
         tweet={"title":request.form['title'],"text":request.form['text'], "uid":login_session['user']['localId']}
         db.child("Tweets").push(tweet)
+        return redirect('/all_tweets')
     return render_template("add_tweet.html")
 
 
